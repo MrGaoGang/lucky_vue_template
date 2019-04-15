@@ -6,10 +6,7 @@ import store from "./store"
 import "./plugins/iview.js";
 import router from "./router/index";
 
-import {
-    currency
-} from './currency'
-Vue.filter('currency', currency);
+
 
 new Vue({
     el: "#app",

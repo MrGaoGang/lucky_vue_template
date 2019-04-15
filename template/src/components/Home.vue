@@ -3,22 +3,20 @@
     <h1>购物车案例</h1>
     <Tabs>
       <TabPane label="商品列表">
-        <ProductList/>
+        <div>demo1</div>
       </TabPane>
 
       <TabPane label="购物车">
-        <ShoppingCart/>
+        <div>demo2</div>
       </TabPane>
     </Tabs>
   </div>
 </template>
 
 <script>
-import ProductList from "./ProductList.vue";
-import ShoppingCart from "./ShoppingCart.vue";
 import { Tabs, TabPane } from "iview";
 export default {
-  components: { ProductList, ShoppingCart, Tabs, TabPane }
+  components: { Tabs, TabPane }
 };
 </script>
 
