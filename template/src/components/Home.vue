@@ -1,12 +1,12 @@
 <template>
   <div class="main">
-    <h1>购物车案例</h1>
+    <h1>Get Persoanl Github info</h1>
     <Tabs>
-      <TabPane label="商品列表">
+      <TabPane label="github info">
         <div>demo1</div>
       </TabPane>
 
-      <TabPane label="购物车">
+      <TabPane label="demo">
         <div>demo2</div>
       </TabPane>
     </Tabs>
@@ -16,7 +16,22 @@
 <script>
 import { Tabs, TabPane } from "iview";
 export default {
-  components: { Tabs, TabPane }
+  components: { Tabs, TabPane },
+  data() {
+    return {
+      githubData: ""
+    };
+  },
+  mounted() {
+    this.$store
+      .dispatch("home/getUserInfo", { name: "gaogang" })
+      .then(data => {
+        this.githubData = data;
+      })
+      .catch(error => {
+        this.githubData = "get data error";
+      });
+  }
 };
 </script>
 
