@@ -1,4 +1,7 @@
-## 模板使用
+
+This is a webpack template for vue; the base config contains iview+vuex+vue-router
+
+### Usage
 
 ``` bash
 $ npm install -g vue-cli
