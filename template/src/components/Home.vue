@@ -3,7 +3,7 @@
     <h1>Get Persoanl Github info</h1>
     <Tabs>
       <TabPane label="github info">
-        <div>demo1</div>
+         <div>{{githubData}}</div>
       </TabPane>
 
       <TabPane label="demo">
