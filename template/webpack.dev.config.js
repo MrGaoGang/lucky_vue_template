@@ -7,7 +7,8 @@ var path = require("path");
 baseConfig.plugins = [];
 module.exports = merge(baseConfig, {
   output: {
-    publicPath: 'dist/',
+    publicPath: '/dist/',
+    filename: "main.js" //输出文件
   },
   devtool: '#eval-source-map',//开启测试环境调试
   plugins: [
