@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MrGaoGang/lucky_vue.git"
+    "url": "git+https://github.com/MrGaoGang/lucky_vue_template.git"
   },
   "author": "{{ author }}",
   "license": "{{ license }}",
   "bugs": {
-    "url": "https://github.com/MrGaoGang/lucky_vue/issues"
+    "url": "https://github.com/MrGaoGang/lucky_vue_template/issues"
   },
-  "homepage": "https://github.com/MrGaoGang/lucky_vue#readme",
+  "homepage": "https://github.com/MrGaoGang/lucky_vue_template#readme",
   "devDependencies": {
      "@babel/core": "^7.3.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
