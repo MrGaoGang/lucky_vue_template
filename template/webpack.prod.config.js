@@ -10,21 +10,22 @@ var VueLoaderPlugin = require("vue-loader/lib/plugin");
 var webpackBaseConfig = require("./webpack.base.config.js");
 //清空构建目录
 var clearWebpack = require("clean-webpack-plugin");
+var path=require("path");
 
+var UglifyJsPlugin=require("uglifyjs-webpack-plugin");
 
 webpackBaseConfig.plugins = [];
 module.exports = merge(webpackBaseConfig, {
   mode: "production",//当前模式
   output: {
-    publicPath: "./dist/",//输出路径
     libraryTarget:"umd",//输出为umd格式
-    filename: "[name].[hash].js",//输出文件名
-    chunkFilename: "[name].[hash].chunk.js"
+    filename: "./js/[name].[hash].js",//输出文件名
+    chunkFilename: "./js/[name].[hash].chunk.js"
   },
   plugins: [
     new clearWebpack(),//构建生产环境包的时候清空dist目录
     new ExtractTextPlugin({//将所有的样式合并为一个css文件
-      filename: "[name].[hash].css",
+      filename: "./css/[name].[hash].css",
       allChunks: true
     }),
     new webpack.DefinePlugin({//定义当前的Node环境为生产环境
@@ -34,9 +35,14 @@ module.exports = merge(webpackBaseConfig, {
     }),
 
     new HtmlwebpackPlugin({//指定构建生成之后的html
-        filename:"../index_pro.html",//此文件路径是相对于dist
+        filename: 'index.html',//此文件路径是相对于dist,
+        inject: true,
+        minify: {
+          removeComments: true,
+          collapseWhitespace: true,
+        },
     }),
     new VueLoaderPlugin(),//使用vue必须要加的哦
- 
+    new UglifyJsPlugin()
   ]
 });
