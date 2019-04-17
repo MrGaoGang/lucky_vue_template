@@ -10,40 +10,83 @@ var VueLoaderPlugin = require("vue-loader/lib/plugin");
 var webpackBaseConfig = require("./webpack.base.config.js");
 //清空构建目录
 var clearWebpack = require("clean-webpack-plugin");
-var path=require("path");
 
-var UglifyJsPlugin=require("uglifyjs-webpack-plugin");
+var OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 webpackBaseConfig.plugins = [];
 module.exports = merge(webpackBaseConfig, {
-  mode: "production",//当前模式
+  mode: "production", //当前模式
   output: {
-    libraryTarget:"umd",//输出为umd格式
-    filename: "./js/[name].[hash].js",//输出文件名
+    libraryTarget: "umd", //输出为umd格式
+    filename: "./js/[name].[hash].js", //输出文件名
     chunkFilename: "./js/[name].[hash].chunk.js"
   },
+  optimization:{
+  
+    splitChunks:{
+      chunks:"all",
+      minSize:2000
+    }
+  },
   plugins: [
-    new clearWebpack(),//构建生产环境包的时候清空dist目录
-    new ExtractTextPlugin({//将所有的样式合并为一个css文件
+    new clearWebpack(), //构建生产环境包的时候清空dist目录
+    new ExtractTextPlugin({
+      //将所有的样式合并为一个css文件
       filename: "./css/[name].[hash].css",
       allChunks: true
     }),
-    new webpack.DefinePlugin({//定义当前的Node环境为生产环境
+    new webpack.DefinePlugin({
+      //定义当前的Node环境为生产环境
       "process.env": {
         NODE_ENV: '"production"'
       }
     }),
 
-    new HtmlwebpackPlugin({//指定构建生成之后的html
-        filename: 'index.html',//此文件路径是相对于dist,
-        template: 'index.html',//使用模板，也就是根目录的Index.html文件
-        inject: true,
-        minify: {
-          removeComments: true,
-          collapseWhitespace: true,
-        },
+    new HtmlwebpackPlugin({
+      //指定构建生成之后的html
+      filename: "index.html", //此文件路径是相对于dist,
+      template: "index.html",
+      inject: true,
+      minify: {
+        // 移除注释
+        removeComments: true,
+        // 不要留下任何空格
+        collapseWhitespace: true,
+        // 当值匹配默认值时删除属性
+        removeRedundantAttributes: true,
+        // 使用短的doctype替代doctype
+        useShortDoctype: true,
+        // 移除空属性
+        removeEmptyAttributes: true,
+        // 从style和link标签中删除type="text/css"
+        removeStyleLinkTypeAttributes: true,
+        // 保留单例元素的末尾斜杠。
+        keepClosingSlash: true,
+        // 在脚本元素和事件属性中缩小JavaScript(使用UglifyJS)
+        minifyJS: true,
+        // 缩小CSS样式元素和样式属性
+        minifyCSS: true,
+        // 在各种属性中缩小url
+        minifyURLs: true
+      }
     }),
-    new VueLoaderPlugin(),//使用vue必须要加的哦
-    new UglifyJsPlugin()
+    new VueLoaderPlugin(), //使用vue必须要加的哦
+    new OptimizeCSSAssetsPlugin({
+      assetNameRegExp: /\.css$/g,
+      cssProcessor: require("cssnano"),
+      // cssProcessorOptions: cssnanoOptions,
+      cssProcessorPluginOptions: {
+        preset: [
+          "default",
+          {
+            discardComments: {
+              removeAll: true
+            },
+            normalizeUnicode: false
+          }
+        ]
+      },
+      canPrint: true
+    })
   ]
 });
