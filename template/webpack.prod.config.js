@@ -36,6 +36,7 @@ module.exports = merge(webpackBaseConfig, {
 
     new HtmlwebpackPlugin({//指定构建生成之后的html
         filename: 'index.html',//此文件路径是相对于dist,
+        template: 'index.html',//使用模板，也就是根目录的Index.html文件
         inject: true,
         minify: {
           removeComments: true,
