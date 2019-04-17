@@ -10,12 +10,13 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, "./dist"), //指定输出目录
-    publicPath: "/dist/",
     libraryTarget: "umd",
     filename: "main.js" //输出文件
   },
+  stats: { children: false },
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           use: "css-loader",
@@ -24,7 +25,8 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        use: [{
+        use: [
+          {
             loader: "vue-loader",
             options: {
               loaders: {
@@ -49,16 +51,12 @@ module.exports = {
         exclude: /node_modules/
         //include: [path.resolve(__dirname, "src"), path.resolve(__dirname, "node_modules/iview/src")]
       },
+
       {
-        test: /iview\/.*?js$/,
+        test: /iview.src.*?js$/,
         loader: "babel-loader"
       },
-      {
-        test: /iview.src.*?js$/, //为了兼容ie
-        use: [{
-          loader: "babel-loader"
-        }]
-      },
+
       {
         test: /\.less/,
         use: ExtractTextPlugin.extract({
@@ -79,7 +77,7 @@ module.exports = {
   },
   plugins: [],
   resolve: {
-    extensions: [".js", ".vue",".json"],
+    extensions: [".js", ".vue", ".json"],
     //设置别名
     alias: {
       vue: "vue/dist/vue.esm.js",
