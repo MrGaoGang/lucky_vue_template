@@ -10,8 +10,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, "./dist"), //指定输出目录
-    libraryTarget: "umd",
-    filename: "main.js" //输出文件
+    libraryTarget: "umd"
   },
   stats: { children: false },
   module: {
