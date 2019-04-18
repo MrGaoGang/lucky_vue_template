@@ -12,7 +12,7 @@ $ npm run dev
 ```
 
 ### Directory introduction
-```
+```js
 |-- lucky_vue
     |-- babel.config.js //babel config
     |-- index.css //gloabl css
