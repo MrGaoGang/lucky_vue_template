@@ -11,17 +11,44 @@ $ npm install
 $ npm run dev
 ```
 
-### Production build
+### Directory introduction
 
-```
------ css
------ fonts
------ img
------ js
------ index.html
+|-- lucky_vue
+    |-- babel.config.js
+    |-- index.css
+    |-- index.html
+    |-- package-lock.json
+    |-- package.json
+    |-- webpack.base.config.js
+    |-- webpack.dev.config.js
+    |-- webpack.prod.config.js
+    |-- dist
+    |   |-- index.html
+    |   |-- css
+    |   |-- fonts
+    |   |-- img
+    |   |-- js
+    |-- src
+        |-- App.vue
+        |-- main.js
+        |-- modules.js
+        |-- api
+        |   |-- shop.js
+        |-- components
+        |   |-- Home.vue
+        |-- plugins
+        |   |-- iview.js
+        |-- router
+        |   |-- index.js
+        |-- server
+        |   |-- fetch.js
+        |   |-- index.js
+        |   |-- api
+        |   |   |-- index.js
+        |   |-- modules
+        |       |-- home.js
+        |-- store
+            |-- index.js
+            |-- modules
+                |-- home.js
 
-```
-> Config
-
-1. open gzip compress;
-2. open css compress;
