@@ -9,7 +9,7 @@
         "type": "string",
         "required": true,
         "label": "Project description",
-        "default": "A Vue.js project"
+        "default": "A Vue.js project by lucky_vue_template"
       },
       "author": {
         "type": "string",
