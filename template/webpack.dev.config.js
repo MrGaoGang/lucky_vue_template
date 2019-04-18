@@ -14,6 +14,7 @@ module.exports = merge(baseConfig, {
   plugins: [
 
     new VueLoaderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
     //将css文件合并为main.css
     new ExtractTextPlugin({
       filename: "main.css",
