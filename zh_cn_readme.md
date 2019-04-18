@@ -1,7 +1,7 @@
 
 **一个基于vue+webpack4.0+vuex3.0+vue-rouer3.0+iview的单页面开发模板**
 
-### 使用 [English](https://github.com/MrGaoGang/lucky_vue_template/README.md)
+### 使用 [English](https://github.com/MrGaoGang/lucky_vue_template/blob/master/README.md)
 
 ``` bash
 $ npm install -g vue-cli
@@ -12,7 +12,7 @@ $ npm run dev
 ```
 
 ### 目录结构
-```
+```js
 |-- lucky_vue
     |-- babel.config.js//babel配置
     |-- index.css//全局css样式
