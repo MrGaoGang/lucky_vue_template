@@ -1,7 +1,7 @@
 
 This is a webpack template for vue; the base config contains iview+vuex+vue-router
 
-### Usage [中文](https://github.com/MrGaoGang/lucky_vue_template/zh_cn_readme.md)
+### Usage [中文](https://github.com/MrGaoGang/lucky_vue_template/blob/master/zh_cn_readme.md)
 
 ``` bash
 $ npm install -g vue-cli
