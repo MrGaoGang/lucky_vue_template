@@ -10,3 +10,18 @@ $ cd my-project
 $ npm install
 $ npm run dev
 ```
+
+### Production build
+
+```
+----- css
+----- fonts
+----- img
+----- js
+----- index.html
+
+```
+> Config
+
+1. open gzip compress;
+2. open css compress;
