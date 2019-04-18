@@ -1,7 +1,7 @@
 
 This is a webpack template for vue; the base config contains iview+vuex+vue-router
 
-### Usage
+### Usage [中文](https://github.com/MrGaoGang/lucky_vue_template/zh_cn_readme.md)
 
 ``` bash
 $ npm install -g vue-cli
@@ -14,15 +14,15 @@ $ npm run dev
 ### Directory introduction
 ```
 |-- lucky_vue
-    |-- babel.config.js
-    |-- index.css
+    |-- babel.config.js //babel config
+    |-- index.css //gloabl css
     |-- index.html
     |-- package-lock.json
     |-- package.json
-    |-- webpack.base.config.js
-    |-- webpack.dev.config.js
-    |-- webpack.prod.config.js
-    |-- dist
+    |-- webpack.base.config.js // base build config
+    |-- webpack.dev.config.js  //development environment build config
+    |-- webpack.prod.config.js //production environment build config
+    |-- dist // the production environment build folder
     |   |-- index.html
     |   |-- css
     |   |-- fonts
@@ -30,25 +30,23 @@ $ npm run dev
     |   |-- js
     |-- src
         |-- App.vue
-        |-- main.js
-        |-- modules.js
-        |-- api
-        |   |-- shop.js
-        |-- components
+        |-- main.js // the app entry js
+        |-- modules.js // the commmon read modules js
+        |-- components // the sub pages
         |   |-- Home.vue
-        |-- plugins
+        |-- plugins // global plugins 
         |   |-- iview.js
-        |-- router
+        |-- router // page router
         |   |-- index.js
-        |-- server
-        |   |-- fetch.js
+        |-- server // gloabl server config 
+        |   |-- fetch.js // Encapsulated network request js
         |   |-- index.js
-        |   |-- api
+        |   |-- api // the api constants
         |   |   |-- index.js
-        |   |-- modules
+        |   |-- modules // the submodule api request
         |       |-- home.js
-        |-- store
+        |-- store // gloabl state config
             |-- index.js
-            |-- modules
+            |-- modules // the submodule state config 
                 |-- home.js
 ```
