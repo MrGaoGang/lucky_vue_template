@@ -13,6 +13,10 @@ var clearWebpack = require("clean-webpack-plugin");
 
 var OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
+var CompressionWebpackPlugin = require("compression-webpack-plugin");
+
+var productionGzipExtensions = ['js', 'css','html']
+
 webpackBaseConfig.plugins = [];
 module.exports = merge(webpackBaseConfig, {
   mode: "production", //当前模式
@@ -21,8 +25,8 @@ module.exports = merge(webpackBaseConfig, {
     filename: "./js/[name].[hash].js", //输出文件名
     chunkFilename: "./js/[name].[hash].chunk.js"
   },
+
   optimization:{
-  
     splitChunks:{
       chunks:"all",
       minSize:2000
@@ -87,6 +91,15 @@ module.exports = merge(webpackBaseConfig, {
         ]
       },
       canPrint: true
+    }),
+
+    new CompressionWebpackPlugin({//开启gzip压缩,防止verndor文件过大
+      filename: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),//只有配置的文件才会被压缩
+      threshold: 10240,//只处理大于此大小的文件。以字节为单位(此处为10k)
+      minRatio: 0.8,//压缩比例
+      deleteOriginalAssets:true//是否删除原始文件
     })
   ]
 });
