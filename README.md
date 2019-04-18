@@ -12,7 +12,7 @@ $ npm run dev
 ```
 
 ### Directory introduction
-
+```
 |-- lucky_vue
     |-- babel.config.js
     |-- index.css
@@ -51,4 +51,4 @@ $ npm run dev
             |-- index.js
             |-- modules
                 |-- home.js
-
+```
