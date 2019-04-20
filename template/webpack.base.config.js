@@ -41,18 +41,8 @@ module.exports = {
             options: {
               prefix: false
             }
-          },
-           {
-            loader: "less-loader",
-            options: {
-              loaders: {
-                css: ExtractTextPlugin.extract({
-                  use: "less-loader",
-                  fallback: "vue-style-loader"
-                })
-              }
-            }
-          },
+          }
+          
         ]
       },
       {
