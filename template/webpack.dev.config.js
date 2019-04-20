@@ -3,6 +3,8 @@ var baseConfig = require("./webpack.base.config.js");
 var VueLoaderPlugin = require("vue-loader/lib/plugin");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlwebpackPlugin = require("html-webpack-plugin");
+var webpack=require("webpack");
+
 var path = require("path");
 baseConfig.plugins = [];
 module.exports = merge(baseConfig, {
