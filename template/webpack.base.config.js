@@ -41,7 +41,18 @@ module.exports = {
             options: {
               prefix: false
             }
-          }
+          },
+           {
+            loader: "less-loader",
+            options: {
+              loaders: {
+                css: ExtractTextPlugin.extract({
+                  use: "less-loader",
+                  fallback: "vue-style-loader"
+                })
+              }
+            }
+          },
         ]
       },
       {
@@ -56,12 +67,25 @@ module.exports = {
         loader: "babel-loader"
       },
 
-      {
-        test: /\.less/,
-        use: ExtractTextPlugin.extract({
-          use: ["less-loader"],
-          fallback: "style-loader"
-        })
+     {
+        test: /\.less$/,
+        use: [
+          {
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: "less-loader",
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
       },
       {
         //此处配置为iview的注意点，如果不配置的话 无法再Js文件中加载iview.css文件；其次如果使用url-loader无法加载的话，会使用file-loader进行文件加载
