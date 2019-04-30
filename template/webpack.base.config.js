@@ -138,7 +138,7 @@ module.exports = {
     //设置别名
     alias: {
       vue: "vue/dist/vue.esm.js",
-      "@": path.resolve("src")
+      "@": path.join(__dirname,"src")
     }
   }
 };
