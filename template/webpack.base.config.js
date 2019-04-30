@@ -74,6 +74,14 @@ module.exports = {
             options: {
               sourceMap: true
             }
+          },
+           {
+            loader: "sass-resources-loader",
+            options: {
+              resources: [
+                path.resolve(__dirname, "./src/base.less")
+              ]
+            }
           }
         ]
       },
