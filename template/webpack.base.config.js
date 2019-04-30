@@ -32,7 +32,8 @@ module.exports = {
                 css: ExtractTextPlugin.extract({
                   use: "css-loader",
                   fallback: "vue-style-loader"
-                })
+                }),
+                scss:["style-loader","css-loader","sass-loader"]
               }
             }
           },
@@ -81,6 +82,21 @@ module.exports = {
               resources: [
                 path.resolve(__dirname, "./src/base.less")
               ]
+            }
+          }
+        ]
+      },
+       // 对sass或者scss文件支持
+      {
+        test: /\.s[a|c]ss$/,
+        loaders: [
+          "style-loader",
+          "css-loader",
+          "sass-loader",
+          {
+            loader: "sass-resources-loader",
+            options: {
+              resources: [path.resolve(__dirname, "./src/base.scss")]
             }
           }
         ]
