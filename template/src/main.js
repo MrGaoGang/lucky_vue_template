@@ -5,7 +5,7 @@ import "babel-polyfill";
 import store from "./store"
 import "./plugins/iview.js";
 import router from "./router/index";
-
+import "./base.less"
 
 
 new Vue({
