@@ -107,7 +107,7 @@ module.exports = {
         loader: "url-loader?limit=1024",
         options:{
           limit: 10000,
-          name: 'img/[name].[chunkhash].[ext]'
+          name: 'img/[name].[hash].[ext]'
         }
       },
       {
@@ -115,7 +115,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'media/[name].[chunkhash].[ext]'
+          name: 'media/[name].[hash].[ext]'
         }
       },
       {
@@ -123,7 +123,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'fonts/[name].[chunkhash].[ext]'
+          name: 'fonts/[name].[hash].[ext]'
         }
       },
       {
