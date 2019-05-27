@@ -22,8 +22,8 @@ module.exports = merge(webpackBaseConfig, {
   mode: "production", //当前模式
   output: {
     libraryTarget: "umd", //输出为umd格式
-    filename: "./js/[name].[hash].js", //输出文件名
-    chunkFilename: "./js/[name].[hash].chunk.js"
+    filename: "./js/[name].[chunkhash].js", //输出文件名
+    chunkFilename: "./js/[name].[chunkhash].chunk.js"
   },
 
   optimization:{
@@ -36,7 +36,7 @@ module.exports = merge(webpackBaseConfig, {
     new clearWebpack(), //构建生产环境包的时候清空dist目录
     new ExtractTextPlugin({
       //将所有的样式合并为一个css文件
-      filename: "./css/[name].[hash].css",
+      filename: "./css/[name].[chunkhash].css",
       allChunks: true
     }),
     new webpack.DefinePlugin({
