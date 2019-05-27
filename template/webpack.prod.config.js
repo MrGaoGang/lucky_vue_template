@@ -22,7 +22,7 @@ module.exports = merge(webpackBaseConfig, {
   mode: "production", //当前模式
   output: {
     libraryTarget: "umd", //输出为umd格式
-    filename: "./js/[name].[chunkhash].js", //输出文件名
+    filename: "./js/[name].[chunkhash].js", //输出文件名,使用chunkhash可以避免每一次都更新js文件，导致缓存失效
     chunkFilename: "./js/[name].[chunkhash].chunk.js"
   },
 
@@ -35,8 +35,8 @@ module.exports = merge(webpackBaseConfig, {
   plugins: [
     new clearWebpack(), //构建生产环境包的时候清空dist目录
     new ExtractTextPlugin({
-      //将所有的样式合并为一个css文件
-      filename: "./css/[name].[chunkhash].css",
+      //将所有的样式合并为一个css文件,chunkhash:8是避免css和js文件相同
+      filename: "./css/[name].[chunkhash:8].css",
       allChunks: true
     }),
     new webpack.DefinePlugin({
