@@ -1,6 +1,8 @@
 
 **一个基于vue+webpack4.0+vuex3.0+vue-rouer3.0+iview的单页面开发模板**
 
+**一个广告**：有需要使用Vue移动端图表库的朋友，请见[这里](https://github.com/MrGaoGang/oview)
+
 ### 使用 [English](https://github.com/MrGaoGang/lucky_vue_template/blob/master/README.md)
 
 ``` bash
