@@ -4,6 +4,7 @@
   "description": "{{ description }}",
   "main": "index.js",
   "scripts": {
+    "dll": "webpack --config ./webpack.dll.config.js --mode production --hide-modules --progress",
     "dev": "webpack-dev-server --open --config webpack.dev.config.js",
     "build": " webpack --progress --hide-modules --config webpack.prod.config.js"
   },
