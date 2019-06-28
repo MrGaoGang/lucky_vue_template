@@ -9,6 +9,7 @@ $ npm install -g vue-cli
 $ vue init mrgaogang/lucky_vue_template my-project
 $ cd my-project
 $ npm install
+$ npm run dll #only first run 
 $ npm run dev
 ```
 
