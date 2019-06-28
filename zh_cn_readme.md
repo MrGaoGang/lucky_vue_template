@@ -10,6 +10,7 @@ $ npm install -g vue-cli
 $ vue init mrgaogang/lucky_vue_template my-project
 $ cd my-project
 $ npm install
+$ npm run dll #第一次启动时执行即可。
 $ npm run dev
 ```
 
