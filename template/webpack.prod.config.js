@@ -10,14 +10,19 @@ var VueLoaderPlugin = require("vue-loader/lib/plugin");
 var webpackBaseConfig = require("./webpack.base.config.js");
 //清空构建目录
 var clearWebpack = require("clean-webpack-plugin");
-
+//css打包优化
 var OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+//复制
+var CopyWebpackPlugin = require("copy-webpack-plugin");
+//将js/css资源放入Html
+var HtmlWebpackTagsPlugin = require("html-webpack-tags-plugin");
 
 var CompressionWebpackPlugin = require("compression-webpack-plugin");
 
-var productionGzipExtensions = ['js', 'css','html']
-
-webpackBaseConfig.plugins = [];
+var productionGzipExtensions = ["js", "css", "html"];
+//一些配置信息
+var config = require("./config/config.js");
+var path = require("path");
 module.exports = merge(webpackBaseConfig, {
   mode: "production", //当前模式
   output: {
@@ -26,10 +31,10 @@ module.exports = merge(webpackBaseConfig, {
     chunkFilename: "./js/[name].[chunkhash].chunk.js"
   },
 
-  optimization:{
-    splitChunks:{
-      chunks:"all",
-      minSize:2000
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+      minSize: 2000
     }
   },
   plugins: [
@@ -45,7 +50,6 @@ module.exports = merge(webpackBaseConfig, {
         NODE_ENV: '"production"'
       }
     }),
-
     new HtmlwebpackPlugin({
       //指定构建生成之后的html
       filename: "index.html", //此文件路径是相对于dist,
@@ -93,6 +97,20 @@ module.exports = merge(webpackBaseConfig, {
       canPrint: true
     }),
 
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require(config.dllPath(true, true))
+    }),
+
+  
+    new HtmlWebpackTagsPlugin({ tags: ["/dll/vendor.dll.js"], append: false }),
+
+    new CopyWebpackPlugin([
+      {
+        from: path.join(__dirname, config.dllPath(true, false)),
+        to: path.join(__dirname, config.dllVendorTarget)
+      }
+    ]),
     // new CompressionWebpackPlugin({//开启gzip压缩,防止verndor文件过大
     //   filename: '[path].gz[query]',
     //   algorithm: 'gzip',
