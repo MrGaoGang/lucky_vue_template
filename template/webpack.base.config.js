@@ -102,7 +102,7 @@ module.exports = {
       },
       {
         //此处配置为iview的注意点，如果不配置的话 无法再Js文件中加载iview.css文件；其次如果使用url-loader无法加载的话，会使用file-loader进行文件加载
-        test: /\.(gif|jpg|png|svg|)\??.*$/,
+        test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
         loader: "url-loader?limit=1024",
         options: {
           limit: 10000,
