@@ -3,6 +3,8 @@
 
 **一个广告**：有需要使用Vue移动端图表库的朋友，请见[这里](https://github.com/MrGaoGang/oview)
 
+**其他**： 如果您有多页面打包的需求，请查看`muti-pages`分支。
+
 ### 使用 [English](https://github.com/MrGaoGang/lucky_vue_template/blob/master/README.md)
 
 ``` bash
