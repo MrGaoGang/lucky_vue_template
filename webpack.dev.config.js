@@ -11,54 +11,20 @@ var webpackBaseConfig = require("./webpack.base.config.js");
 //清空构建目录
 var clearWebpack = require("clean-webpack-plugin");
 var config = require("./config/config.js");
-
 var AddAssetHtmlPlugin = require("add-asset-html-webpack-plugin");
-var bunbleAnalyzer=require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+
 // var chunkConfig=require("./config/chunk_config");
 var env_config = require("./config/env_config.js");
 
-module.exports = merge(webpackBaseConfig, {
-
-  optimization: {
-    splitChunks: {
-      chunks: "async",
-      minSize: 30000,
-      minChunks: 1,
-      maxAsyncRequests: 5,
-      maxInitialRequests: 3,
-      automaticNameDelimiter: '~',
-      name: true,
-      cacheGroups: {
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10
-        },
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true
-        }
-      }
-    }
-  },
+module.exports = merge(webpackBaseConfig,env_config.splitChunks, {
   plugins: [
     new ExtractTextPlugin({
       //将所有的样式合并为一个css文件,chunkhash:8是避免css和js文件相同
-      filename: "./css/main.css",
+      filename: "./css/[name]-[chunkhash].css",
       allChunks: true
     }),
 
-
     new VueLoaderPlugin(), //使用vue必须要加的哦
-    new bunbleAnalyzer(),
-    // new webpack.DllReferencePlugin({
-    //   context: __dirname,
-    //   manifest: require(config.dllPath(null, true))
-    // }),
-    // new AddAssetHtmlPlugin({
-    //   filepath: require.resolve(config.dllPath(null, false)),
-    //   includeSourcemap: false
-    // })
+
   ].concat(env_config.htmlPlugin())
 });
-
