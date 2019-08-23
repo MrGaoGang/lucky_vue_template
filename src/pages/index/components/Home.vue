@@ -1,7 +1,10 @@
 <template>
   <div class="main">
-    <h1>Get Persoanl Github info</h1>
-    <a href="admin.html">管理员</a>
+    <div class="header">
+      <h1>客户端</h1>
+      <a href="admin.html">管理员</a>
+    </div>
+
     <Tabs>
       <TabPane label="github info">
         <div>{{githubData}}</div>
@@ -41,5 +44,10 @@ export default {
 <style scoped>
 .main {
   margin: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
 }
 </style>
