@@ -9,18 +9,23 @@ module.exports = {
         useBuiltIns: "entry",
         debug: false
       }
-    ]
+    ],
+    "@vue/babel-preset-jsx"
   ],
   plugins: [
     "@babel/plugin-transform-runtime",
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-proposal-object-rest-spread",
     "transform-vue-jsx",
-    // ["import", {
-    //   "libraryName": "ant-design-vue",
-    //   "libraryDirectory": "es",
-    //   "style": "css"
-    // }],
+    [
+      "import",
+      {
+        libraryName: "ant-design-vue",
+        libraryDirectory: "es",
+        style: "css"
+      },
+      "ant-design-vue"
+    ],
     [
       "import",
       {
