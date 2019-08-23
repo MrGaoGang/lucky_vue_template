@@ -13,7 +13,7 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, config.rootDir), //指定输出目录
-    filename: "./[name].js"
+    filename: "./js/[name].js"
   },
   stats: {
     children: false
