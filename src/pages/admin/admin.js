@@ -1,10 +1,10 @@
 import Vue from "vue";
 import App from "./App.vue";
-import Ant from "ant-design-vue"
-Vue.use(Ant);
-
-
+import store from "./store/index";
+import router from "./router/index"
 new Vue({
-    el: "#app",
-    render: h => h(App)
+  el: "#app",
+  store,
+  router,
+  render: h => h(App)
 });
