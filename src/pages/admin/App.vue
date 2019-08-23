@@ -1,10 +1,12 @@
 <template>
-  <div class="main">你好这是管理员页面</div>
+  <div class="main">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
 export default {
-  components: {}
+
 };
 </script>
 
