@@ -8,3 +8,6 @@
 - 抽取ant和iview代码
 - 抽取babel-polyfill代码
 - 抽取vue/vuex/vue-router
+
+
+![](./images/bundle.png)
